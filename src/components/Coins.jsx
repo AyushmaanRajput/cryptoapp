@@ -30,6 +30,7 @@ import {
 } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { SelectedCoin } from "./SelectedCoin";
+import { Loader } from "./Loader";
 
 export const Coins = ({ currency }) => {
   const toast = useToast();
@@ -39,6 +40,10 @@ export const Coins = ({ currency }) => {
   console.log(coins);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectedCoin, setSelectedCoin] = useState(null);
+
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <Stack w="100%" p={4}>
       <TableContainer mt={4}>
@@ -91,11 +96,11 @@ export const Coins = ({ currency }) => {
                       </Flex>
                     </Td>
                     <Td textAlign={"center"}>
-                      {currency == "INR"
+                      {currency == "inr"
                         ? "₹"
-                        : currency == "USD"
+                        : currency == "usd"
                         ? "$"
-                        : currency == "EUR"
+                        : currency == "eur"
                         ? "€"
                         : ""}
                       {coin.current_price}
@@ -110,11 +115,11 @@ export const Coins = ({ currency }) => {
                       </Text>
                     </Td>
                     <Td textAlign={"center"}>
-                      {currency == "INR"
+                      {currency == "inr"
                         ? "₹"
-                        : currency == "USD"
+                        : currency == "usd"
                         ? "$"
-                        : currency == "EUR"
+                        : currency == "eur"
                         ? "€"
                         : ""}
                       {coin.market_cap}

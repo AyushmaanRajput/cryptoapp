@@ -10,7 +10,7 @@ export const Home = () => {
   const toast = useToast();
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
-  const [currency, setCurrency] = useState("INR");
+  const [currency, setCurrency] = useState("inr");
   const [search, setSearch] = useState("");
   const [order, setOrder] = useState("");
 
@@ -28,7 +28,7 @@ export const Home = () => {
     dispatch(getCoins(params, toast));
   }, [page, currency, order, search]);
   return (
-    <Stack p={4}>
+    <Stack p={4} minH={"25vh"} position={"relative"}>
       <Toolbar
         search={search}
         setSearch={setSearch}
@@ -39,6 +39,6 @@ export const Home = () => {
       />
       <Coins currency={currency} />
       <Pagination page={page} setPage={setPage} />
-    </Stack >
+    </Stack>
   );
 };

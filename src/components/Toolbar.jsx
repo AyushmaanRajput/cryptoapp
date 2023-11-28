@@ -19,12 +19,12 @@ export const Toolbar = ({ setSearch, setOrder, setCurrency }) => {
         </Select>
         <Select
           placeholder="Currency"
-          defaultValue={"INR"}
+          defaultValue={"inr"}
           onChange={(e) => setCurrency(e.target.value)}
         >
-          <option value="INR">₹INR</option>
-          <option value="USD">$USD</option>
-          <option value="EUR">€EURO</option>
+          <option value="inr">₹INR</option>
+          <option value="usd">$USD</option>
+          <option value="eur">€EURO</option>
         </Select>
       </Flex>
     </Flex>
